@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - False Poet</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Chatbot </title>
+
+  < <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="img/favicon.png" />
+
+  <link rel="stylesheet" media="all" href="/style.css" />
+  <link rel="stylesheet" media="all" href="/style.css" />
+  <link rel="stylesheet" media="all" href="/style.css" />
+  <link rel="stylesheet" media="all" href="/style.css" />
+  <link rel="stylesheet" media="all" href="/style.css" />
+  <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,600,700&display=swap" rel="stylesheet" />
+
+  <style>
+    body {
+      background: #000000;
+    }
+
+    .bubble-container {
+      height: 100vh;
+    }
+
+    .bubble-container .input-wrap textarea {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="chat">
+    <div class="header">
+      <img src="https://cdn.glitch.com/c254de64-d695-45e0-bac9-4727a344c6af%2Fchatbotcover.png?v=1583868889821" width="40px;" />
+      <div>
+        <h1>false poet</h1>
+        <p>Online</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://codepen.io/tizcreel/pen/YzGRwBd.js">
+  </script>
+ 
+  
+  <script>
+    var chatWindow = new Bubbles(
+      document.getElementById("chat"),
+      "chatWindow", {
+        inputCallbackFn: function(o) {
+          var match = function(key) {
+            setTimeout(function() {
+              chatWindow.talk(convo, key);
+            }, 600);
+          };
+          var strip = function(text) {
+            return text
+              .toLowerCase()
+              .replace(/[\s.,\/#!$%\^&\*;:{}=\-_'"`~()]/g, "");
+          };
+          var found = false;
+          o.convo[o.standingAnswer].reply.forEach(function(e, i) {
+            strip(e.human_response).includes(strip(o.input)) &&
+              o.input.length > 0 ?
+              (found = e.bot_answer) :
+              found ?
+              null :
+              (found = false);
+          });
+          found ? match(found) : miss();
+        }
+      }
+    );
+    var convo = {
+      // first section
+      intro: {
+        bot_says: [
+          "The usual suspects all lined up",
+          "The name of the killer",
+          "is about to come up",
+          "What have you done?"
+        ],
+        human_reply: [{
+            human_response: [
+              "No... no no "
+            ],
+            bot_answer: "what"
+          },
+          {
+            human_response: [
+              "you know nothing"
+            ],
+            bot_answer: "what"
+          }
+        ]
+      },
+      //second section
+      what: {
+        bot_says: [
+          "Shame",
+          "Shame",
+          "Shame",
+          "Shame",
+          "Shame",
+          "Straight to the hole where you belong"
+        ],
+        human_reply: [{
+            human_response: "God makes no mistakes",
+            bot_answer: "sod"
+          },
+          {
+            human_response: "Mistake of god",
+            bot_answer: "mistake"
+          }
+        ]
+      },
+      //Third section
+      mistake: {
+        bot_says: [
+          "Accept the bliss is to be normal my dear",
+          "to be an Average peer",
+          "Orderly an ordinary",
+          "Standard mercenary"
+        ],
+        human_reply: [{
+          human_response: ["Whoever they are", " I do what I’m told"],
+          bot_answer: "sheep"
+        }]
+      },
+      //Fourth section
+      sod: {
+        bot_says: [
+          "Watch out",
+          "Looking with other eyes",
+          "might change your perspective"
+        ],
+        human_reply: [{
+          human_response: "The light, It almost blinded me",
+          bot_answer: "sheep"
+        }]
+      },
+      //Fifth section
+      sheep: {
+        bot_says: [
+          "<img src=https://media.giphy.com/media/wOe1XNgWCNoqY/giphy.gif>"
+        ],
+        human_reply: [{
+            human_response: "I am in control",
+            bot_answer: "control"
+          },
+          {
+            human_response: "Never in control",
+            bot_answer: "nocontrol"
+          }
+        ]
+      },
+      //sixth section
+      control: {
+        bot_says: ["Is the problem", "solved?"],
+        human_reply: [{
+            human_response: "We might not even know what the problem is",
+            bot_answer: "problem"
+          },
+          {
+            human_response: [
+              "It takes time to change",
+              "So I was told",
+              "Little by little, slow approach"
+            ],
+            bot_answer: "problem"
+          }
+        ]
+      },
+      //seventh section
+      nocontrol: {
+        bot_says: ["I rather", "stop making sense"],
+        human_reply: [{
+          human_response: "dflñkgjkdlsjblñkdjfsblkñfjgbkljfklgbj",
+          bot_answer: "control"
+        }]
+      },
+      //eighth section
+      problem: {
+        bot_says: ["I cant breath", "I can't stand"],
+        human_reply: [{
+            human_response: "where is the floor?",
+            bot_answer: "open"
+          },
+          {
+            human_response: "Where is the gorund?",
+            bot_answer: "open"
+          }
+        ]
+      },
+      //ninth section
+      open: {
+        bot_says: ["I´m falling down"],
+        human_reply: [{
+            human_response: "Hold me tight",
+            bot_answer: "next"
+          },
+          {
+            human_response: "balance, balance",
+            bot_answer: "next"
+          }
+        ]
+      },
+      //tenth section
+      next: {
+        bot_says: [
+          "Ground control",
+          "No controls",
+          "Blurred lines",
+          "Im so lost"
+        ],
+        human_reply: [{
+            human_response: "who is that?",
+            bot_answer: "last"
+          },
+          {
+            human_response: "who are you?",
+            bot_answer: "last"
+          },
+          {
+            human_response: "where am I",
+            bot_answer: "last"
+          }
+        ]
+      },
+      //tenth section
+      last: {
+        bot_says: ["oh", "that is me"],
+        human_reply: [{
+          human_response: "me",
+          bot_answer: "intro"
+        }]
+      }
+    };
+    chatWindow.talk(convo);
+  </script>
+</body>
+
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
